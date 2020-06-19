@@ -90,4 +90,12 @@
     return "";
   }
 
+  // Control Mobile Menu Toggle
+  let triggerElement = document.getElementById('trigger');
+  let toggleElement = document.getElementById('js-site-nav-toggle');
+
+  toggleElement.addEventListener('click', function() {
+    triggerElement.classList.toggle('active');
+  })
+
 </script>

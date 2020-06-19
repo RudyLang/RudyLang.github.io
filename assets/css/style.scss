@@ -11,57 +11,144 @@ body {
   margin: 0;
 }
 
-/**************************************** HEADER ****************************************/ 
-.site-header {
-  background-color: cadetblue;
-  height: 100vh;
-  width: 200px;
-  position: absolute;
-  top: 0px;
-  z-index: 100;
-  border-bottom: none;
-  border-top: none;
+/**************************************** HEADER MOBILE ****************************************/
+@media only screen and (max-width: 600px) {
+  .site-header {
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    z-index: 100;
+    border-bottom: none;
+    border-top: none;
+    line-height: 40px;
+  }
+
+  .header-wrapper {
+    background-color: rgb(206, 231, 62);
+    height: inherit;
+    width: inherit;
+  }
+
+  .site-nav {
+    background-color: rgba(94, 101, 161, 0);
+    border: none;
+    border-radius: 0px;
+    top: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    width: inherit;
+  }
+
+  .site-nav-toggle {
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    text-align: left;
+    padding-left: 10px;
+    background-color: lightgray;
+    width: 34px;
+  }
+
+  .site-nav .trigger {
+    display: none;
+    flex-direction: column;
+    list-style-type: none;
+  }
+
+  .site-nav .page-link {
+    background-color: rgba(100,100,100,0.5);
+    height: 30px;
+    border: none;
+    text-decoration: none;
+    margin-left: unset;
+    flex-grow: 1;
+    text-align: left;
+    padding: 5px;
+  }
+
+  .site-nav a {
+    font-size: 20px;
+    color: white !important;
+  }
+
+  .site-nav .page-link:not(:last-child) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .active {
+    display: flex !important;
+  }
 }
 
-.header-wrapper {
-  background-color: rgb(206, 231, 62);
-  height: inherit;
-  width: inherit;
-}
+/***********************************************************************************************/
 
-.site-nav {
-  background-color: rgba(94, 101, 161, 0);
-  border: none;
-  border-radius: 0px;
-  top: 0px;
-  right: 0px;
-  margin: 0;
-  padding: 0;
-  height: inherit;
-  width: inherit;
-}
+/**************************************** HEADER DESKTOP ****************************************/ 
 
-.site-nav .trigger {
-  display: flex;
-  flex-direction: column;
-}
+@media only screen and (min-width: 600px) {
+  .site-header {
+    background-color: cadetblue;
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    border-bottom: none;
+    border-top: none;
+  }
 
-.site-nav .page-link {
-  background-color: rgba(100,100,100,0.5);
-  height: 50px;
-  border: none;
-  text-decoration: none;
-  margin-left: unset;
-  font-size: 24px;
-  flex-grow: 1;
-  display: block;
-  text-align: left;
-  padding: 10px;
-}
+  .header-wrapper {
+    background-color: rgb(206, 231, 62);
+    height: inherit;
+    width: inherit;
+  }
 
-.site-nav .page-link:not(:last-child) {
-  margin-right: 0;
-  margin-left: 0;
+  .site-nav {
+    background-color: rgba(94, 101, 161, 0);
+    border: none;
+    border-radius: 0px;
+    top: 0px;
+    right: 0px;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    width: inherit;
+  }
+
+  .site-nav-toggle {
+    display: none;
+  }
+
+  .site-nav .trigger {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .site-nav .page-link {
+    background-color: rgba(100,100,100,0.5);
+    height: 30px;
+    border: none;
+    text-decoration: none;
+    margin-left: unset;
+    flex-grow: 1;
+    text-align: left;
+    padding: 5px;
+  }
+
+  .site-nav .trigger a {
+    font-size: 20px;
+    color: white;
+  }
+
+  .site-nav .trigger a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .site-nav .page-link:not(:last-child) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 .setLeft {
@@ -86,14 +173,31 @@ a.site-title {
 
 /*****************************************************************************************/ 
 
-/**************************************** CONTENT ****************************************/ 
+/**************************************** CONTENT MOBILE ****************************************/
+@media only screen and (max-width: 600px) {
+  .page-content {
+    background-color: forestgreen;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 60px;
+  }
 
-.page-content {
-  background-color: forestgreen;
-  padding-left: 250px;
-  padding-right: 50px;
+  .content-wrapper {
+    background-color: lightskyblue;
+  }
 }
+/************************************************************************************************/
 
-.content-wrapper {
-  background-color: lightskyblue;
+/**************************************** CONTENT DESKTOP ****************************************/ 
+@media only screen and (min-width: 600px) {
+  .page-content {
+    background-color: forestgreen;
+    padding-left: 250px;
+    padding-right: 50px;
+  }
+
+  .content-wrapper {
+    background-color: lightskyblue;
+  }
 }
+/*************************************************************************************************/

@@ -9,12 +9,15 @@
     {%- if titles_size > 0 -%}
       <nav class="site-nav">
 
-        <div class="trigger">
+        <div class="site-nav-toggle" id="js-site-nav-toggle">
+          <i class="fa fa-bars"></i>
+        </div>
+
+        <div id="trigger" class="trigger">
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
-            <!--<a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>-->
-            <button class="page-link" onclick="window.location.href='{{ my_page.url | relative_url }}'">{{ my_page.title | escape }}</button>
+            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
             {%- endif -%}
           {%- endfor -%}
           <button class="page-link" onclick="ChangePage(`{{ null }}`)">Next Section</button>
