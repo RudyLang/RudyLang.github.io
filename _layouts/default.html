@@ -20,6 +20,24 @@
 </html>
 
 <script type="text/javascript">
+
+  // Determine page style based on cookie
+  window.onload = function() {
+    var siteStyle = getCookie("style");
+    if (siteStyle == "day")
+    {
+      $("#navbar").removeClass('setRight').addClass('setLeft');
+    }
+    else if (siteStyle == "night")
+    {
+      $("#navbar").removeClass('setLeft').addClass('setRight');
+    }
+    else
+    {
+      $("#navbar").removeClass('setLeft').addClass('setRight');
+    }
+  }
+
   function ChangePage(pageURL) {
     // Move the site-nav from either side of the page
 
@@ -37,10 +55,38 @@
     if ($("#navbar").hasClass("setLeft"))
     {
       $("#navbar").removeClass('setLeft').addClass('setRight');
+
+      // Set style to 'night', store in cookie
+      setCookie("style", "night", 1);
     }
     else if ($("#navbar").hasClass("setRight"))
     {
       $("#navbar").removeClass('setRight').addClass('setLeft');
+      // Set style to 'day', store in cookie
+      setCookie("style", "day", 1);
     }
   }
+
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
 </script>
