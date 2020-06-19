@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="content-wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
+
+<script type="text/javascript">
+  function ChangePage(pageURL) {
+    // Move the site-nav from either side of the page
+
+    // First fade the site-nav out
+    $(".site-header").fadeOut(1000);
+
+    // Change sides by editing the float value
+    setTimeout(SwitchSides, 1000);
+
+    // And fade it back in
+    $(".site-header").fadeIn(1000);
+  }
+
+  function SwitchSides() {
+    if ($("#navbar").hasClass("setLeft"))
+    {
+      $("#navbar").removeClass('setLeft').addClass('setRight');
+    }
+    else if ($("#navbar").hasClass("setRight"))
+    {
+      $("#navbar").removeClass('setRight').addClass('setLeft');
+    }
+  }
+</script>

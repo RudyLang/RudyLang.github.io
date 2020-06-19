@@ -1,0 +1,82 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import
+  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
+  "minima/initialize";
+
+body {
+  background-color: rgb(17, 17, 17);
+  margin: 0;
+}
+
+/**************************************** HEADER ****************************************/ 
+.site-header {
+  background-color: cadetblue;
+  height: 100vh;
+  width: 100px;
+  position: absolute;
+  overflow: none;
+  top: 0px;
+  z-index: 100;
+  border-bottom: none;
+  border-top: none;
+}
+
+.header-wrapper {
+  background-color: rgb(206, 231, 62);
+  height: inherit;
+  width: inherit;
+
+}
+
+.site-nav {
+  background-color: rgb(90, 124, 124);
+  position: relative;
+  border: none;
+  border-radius: 0px;
+  top: 0px;
+  right: 0px;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-nav .trigger {
+  text-align: left;
+}
+
+.site-nav .page-link {
+  background-color: dodgerblue;
+  display: inline-flex;
+  height: 80px;
+  width: 80px;
+}
+
+.setLeft {
+  left: 0px;
+}
+
+.setRight {
+  right: 0px;
+}
+
+a.site-title {
+  background-color: ghostwhite;
+}
+
+/*****************************************************************************************/ 
+
+/**************************************** CONTENT ****************************************/ 
+
+.page-content {
+  background-color: forestgreen;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.content-wrapper {
+  background-color: lightskyblue;
+}
