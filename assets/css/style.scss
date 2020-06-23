@@ -16,6 +16,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
+  color: #fef9c7;
 }
 
 /**************************************** HEADER MOBILE ****************************************/
@@ -143,8 +144,17 @@ body {
     color: #fef9c7;
   }
 
-  .home blockquote {
+  .home hr {
+    margin: auto;
+    width: 60px;
+  }
+
+  .home .home-quote {
     text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    color: #fce181;
+    margin-bottom: 20px;
   }
 
   .site-nav-toggle {
@@ -188,6 +198,15 @@ body {
     margin-left: 0;
   }
 
+  .page-feature {
+    height: 500px;
+    width: 800px;
+    background-color: rgba(21, 20, 54, 0.384);
+    border: 1px solid #203168a6;
+    float: left;
+    margin-right: 20px;
+  }
+
   .post-link {
     font-family: 'Libre Baskerville', serif;
     font-weight: 400;
@@ -202,7 +221,7 @@ body {
   .post-link img {
     position: relative;
     top: -380px; /*FIXME: This needs to be relative to the images size*/
-    float: right
+    float: right;
   }
 
   .post-meta {
