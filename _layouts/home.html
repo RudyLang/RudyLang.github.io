@@ -4,7 +4,7 @@ layout: default
 
 <div class="home">
 
-  <h1>Welcome to my portfolio</h1>
+  <h1>Portfolio</h1>
   <blockquote>
     Programmer by day...</br>
     ... artist by night.
@@ -36,6 +36,7 @@ layout: default
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
+            <img src="/post_images/{{ post.image }}">
           </a>
         </h3>
         {%- if site.show_excerpts -%}

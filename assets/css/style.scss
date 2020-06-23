@@ -7,10 +7,12 @@
   "minima/initialize";
 @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Contrail+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,300&display=swap');
 
 body {
   background-color: #1d1e22;
-  background-image: url('images/unsplash_temporary_background.jpg');
+  background-image: url('images/mountain_background_rudy_lang.png');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
@@ -122,12 +124,27 @@ body {
     padding: 0;
     height: inherit;
     width: inherit;
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
   }
 
   .site-title {
     padding-left: 5px;
     color: #fce181 !important;
+  }
+
+  .home h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 60px;
+    text-align: center;
+    color: #fef9c7;
+  }
+
+  .home blockquote {
+    text-align: center;
   }
 
   .site-nav-toggle {
@@ -172,20 +189,33 @@ body {
   }
 
   .post-link {
-    font-family: 'Contrail One', cursive;
-    font-size: 50px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 40px;
     color: #fef9c7;
-    background-color: rgb(170, 26, 98);
+    background-color: rgba(21, 20, 54, 0.384);
+    border: 1px solid #203168a6;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .post-link img {
+    position: relative;
+    top: -380px; /*FIXME: This needs to be relative to the images size*/
+    float: right
   }
 
   .post-meta {
-    font-family: 'Contrail One', cursive;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
     color: #fce181;
   }
 
   .post-list a:visited {
-    font-family: 'Contrail One', cursive;
-    font-size: 50px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 40px;
     color: #fef9c7;
   }
 }
@@ -237,7 +267,19 @@ a.site-title {
   }
 
   .content-wrapper {
-    background-color: #02677079;
+    background-color: #02677000;
   }
 }
 /*************************************************************************************************/
+
+/**************************************** FOOTER DESKTOP ****************************************/ 
+@media only screen and (min-width: 600px) {
+  .site-footer {
+    background-color: rgba(21, 20, 54, 0.384);
+    border-top: 1px solid #203168a6;
+    padding: 10px 0;
+  }
+
+}
+
+/************************************************************************************************/ 
