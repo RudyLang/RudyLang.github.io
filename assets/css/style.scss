@@ -12,7 +12,7 @@
 
 body {
   background-color: #1d1e22;
-  background-image: url('images/mountain_background_rudy_lang.png');
+  background-image: url('images/mountain_background_flat_rudy_lang.png');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
@@ -131,6 +131,9 @@ body {
   }
 
   .site-title {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-weight: 400;
     padding-left: 5px;
     color: #fce181 !important;
   }
@@ -154,7 +157,8 @@ body {
     font-family: 'Libre Baskerville', serif;
     font-weight: 400;
     color: #fce181;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-variant: small-caps;
   }
 
   .site-nav-toggle {
@@ -199,29 +203,62 @@ body {
   }
 
   .page-feature {
-    height: 500px;
     width: 800px;
-    background-color: rgba(21, 20, 54, 0.384);
-    border: 1px solid #203168a6;
+    background-color: #080b17ef;
+    border: 4px solid #fce181;
     float: left;
     margin-right: 20px;
+    padding: 20px;
+  }
+
+  .feature-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .feature-paragraph {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+  }
+
+  .post-list {
+    position: relative;
+    top: -66px;
   }
 
   .post-link {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 400;
-    font-size: 40px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
     color: #fef9c7;
-    background-color: rgba(21, 20, 54, 0.384);
-    border: 1px solid #203168a6;
+    background-color: #080b17ef;
+    border: 4px solid #fce181;
     height: 60px;
     overflow: hidden;
   }
 
+  .post-link span {
+    padding-left: 10px;
+    padding-top: 7px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
   .post-link img {
     position: relative;
-    top: -380px; /*FIXME: This needs to be relative to the images size*/
+    top: -350px; /*FIXME: This needs to be relative to the images size*/
     float: right;
+    right: -1000px;
+
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.1s;
+  }
+
+  .post-link:hover img {
+    right: 0px;
   }
 
   .post-meta {
@@ -236,6 +273,15 @@ body {
     font-weight: 400;
     font-size: 40px;
     color: #fef9c7;
+  }
+
+  .post-list .post-divider {
+    margin: auto;
+  }
+
+  .post-list-heading {
+    position: relative;
+    top: -52px;
   }
 }
 
@@ -294,9 +340,11 @@ a.site-title {
 /**************************************** FOOTER DESKTOP ****************************************/ 
 @media only screen and (min-width: 600px) {
   .site-footer {
-    background-color: rgba(21, 20, 54, 0.384);
+    background-color: #080b17f3;
     border-top: 1px solid #203168a6;
     padding: 10px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
   }
 
 }
