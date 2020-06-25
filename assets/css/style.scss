@@ -301,37 +301,39 @@ a.site-title {
     font-weight: 300;
   }
 
+  .post-list li {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-right: 3px solid #fce181;
+  }
+
+  .post-list li img {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    top: -200px; /*FIXME: Calculate this value or come up with a standardization*/
+  }
+
   .post-link {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    font-size: 30px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-style: italic;
     color: #fef9c7;
-    background-color: #080b17ef;
-    height: 60px;
+    height: 40px;
     overflow: hidden;
   }
 
   .post-link span {
     padding-left: 10px;
-    padding-top: 7px;
     display: inline-block;
     vertical-align: middle;
   }
 
-  .post-link img {
-    position: relative;
-    top: -350px; /*FIXME: This needs to be relative to the images size*/
-    float: right;
-    right: -1000px;
-
-    transition-property: right;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in;
-    transition-delay: 0.1s;
-  }
-
-  .post-link:hover img {
-    right: 0px;
+  .post-list p {
+    padding-left: 10px;
+    margin-top: -10px;
   }
 
   .post-meta {
@@ -339,6 +341,7 @@ a.site-title {
     font-weight: 300;
     text-transform: uppercase;
     color: #fce181;
+    padding-left: 10px;
   }
 
   .post-list-column {
@@ -380,5 +383,27 @@ a.site-title {
   }
 
 }
+
+/************************************************************************************************/ 
+
+/******************************************* Features *******************************************/ 
+
+.loading-bar {
+  height: 2px;
+  width: 0%;
+  background-color: #fce181;
+  margin: 0;
+  float: left;
+
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  transition-delay: 0.1s;
+}
+
+ .post-link:hover + .loading-bar {
+  width: 90%;
+}
+
 
 /************************************************************************************************/ 

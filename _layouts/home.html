@@ -4,7 +4,7 @@ layout: default
 
 <div class="home">
 
-  <h1>Portfolio</h1>
+  <h1>Rudy Lang</h1>
   <hr>
   <br>
   <div class="home-quote">
@@ -29,7 +29,7 @@ layout: default
     <div style="flex-grow: 7; padding-left: 20px;">
       Featured
     </div>
-    <div style="flex-grow: 3; padding-left: 20px;">
+    <div style="flex-grow: 3; padding-left: 50px;">
       Posts
     </div>
   </div>
@@ -62,15 +62,19 @@ layout: default
           <h3>
             <a class="post-link" href="{{ post.url | relative_url }}">
               <span>{{ post.title | escape }}</span>
-              <img src="/post_images/{{ post.image }}">
+              <!--<img src="/post_images/{{ post.image }}">-->
             </a>
+            <div class="loading-bar">&nbsp;</div>
           </h3>
+
+          <p>{{ post.summary | escape }}</p> <!--TODO: Use site.show_excerpts instead?-->
+
+          <img src="/post_images/{{ post.image }}"> <!--Add path to default image to use if post doesn't have one-->
+
           {%- if site.show_excerpts -%}
             {{ post.excerpt }}
           {%- endif -%}
         </li>
-        
-        <hr class="post-divider">
   
         {%- endfor -%}
       </ul>
