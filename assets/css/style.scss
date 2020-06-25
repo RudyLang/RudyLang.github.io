@@ -12,11 +12,20 @@
 
 body {
   background-color: #1d1e22;
-  background-image: url('images/mountain_background_flat_rudy_lang.png');
+  background-image: url('images/mountain_background_flat_rudy_lang_dark.png');
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
   color: #fef9c7;
+}
+
+.sun-moon {
+  color: #fce181;
+  font-size: 50px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 1000;
 }
 
 /**************************************** HEADER MOBILE ****************************************/
@@ -102,32 +111,33 @@ body {
 @media only screen and (min-width: 600px) {
   .site-header {
     background-color: rgba(255, 255, 255, 0);
-    width: 200px;
-    position: absolute;
-    top: 0px;
     border-bottom: none;
     border-top: none;
+    padding-left: 250px;
+    padding-right: 250px;
   }
 
   .header-wrapper {
     background-color: rgba(255, 255, 255, 0);
     height: inherit;
     width: inherit;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
   }
 
   .site-nav {
     background-color: rgba(255, 255, 255, 0);
     border: none;
     border-radius: 0px;
-    top: 0px;
-    right: 0px;
-    margin: 0;
-    padding: 0;
     height: inherit;
     width: inherit;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
+    float: none;
   }
 
   .site-title {
@@ -167,121 +177,39 @@ body {
 
   .site-nav .trigger {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .site-nav .page-link {
-    background-color: rgba(255, 255, 255, 0);
-    height: 30px;
+    background-color: rgba(100, 64, 201, 0);
     border: none;
     text-decoration: none;
-    margin-left: unset;
-    flex-grow: 1;
-    text-align: left;
+    text-align: center;
     padding: 5px;
+    flex-grow: 1 1 auto;
+    margin: 5px;
   }
 
   .site-nav .trigger a {
     font-size: 20px;
     color: #fef9c7;
-    border-right: 0px solid #fef9c7;
-    transition-property: border-right;
+    border: 1px solid #fef9c700;
+    width: 80px;
+    transition-property: border;
     transition-duration: 0.1s;
     transition-timing-function: linear;
     transition-delay: 0.1s;
   }
 
   .site-nav .trigger a:hover {
-    background-color: #02677080;
     color: #fef9c7;
-    border-right: 10px solid #fce181;
+    border: 1px solid #fce181;
   }
 
   .site-nav .page-link:not(:last-child) {
     margin-right: 0;
     margin-left: 0;
-  }
-
-  .page-feature {
-    width: 800px;
-    background-color: #080b17ef;
-    border: 4px solid #fce181;
-    float: left;
-    margin-right: 20px;
-    padding: 20px;
-  }
-
-  .feature-title {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  .feature-paragraph {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-  }
-
-  .post-list {
-    position: relative;
-    top: -66px;
-  }
-
-  .post-link {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    font-size: 30px;
-    color: #fef9c7;
-    background-color: #080b17ef;
-    border: 4px solid #fce181;
-    height: 60px;
-    overflow: hidden;
-  }
-
-  .post-link span {
-    padding-left: 10px;
-    padding-top: 7px;
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .post-link img {
-    position: relative;
-    top: -350px; /*FIXME: This needs to be relative to the images size*/
-    float: right;
-    right: -1000px;
-
-    transition-property: right;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in;
-    transition-delay: 0.1s;
-  }
-
-  .post-link:hover img {
-    right: 0px;
-  }
-
-  .post-meta {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: #fce181;
-  }
-
-  .post-list a:visited {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 400;
-    font-size: 40px;
-    color: #fef9c7;
-  }
-
-  .post-list .post-divider {
-    margin: auto;
-  }
-
-  .post-list-heading {
-    position: relative;
-    top: -52px;
   }
 }
 
@@ -334,6 +262,104 @@ a.site-title {
   .content-wrapper {
     background-color: #02677000;
   }
+
+  .flex-grid-headers {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .flex-grid-headers > div {
+    margin: 10px;
+    text-align: left;
+    line-height: 50px;
+    font-size: 30px;
+  }
+
+  .flex-grid-content {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .flex-grid-content > div {
+    margin: 10px;
+  }
+
+  .page-feature {
+    background-color: #080b17ef;
+    border: 3px solid #fce181;
+    padding: 20px;
+  }
+
+  .feature-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .feature-paragraph {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+  }
+
+  .post-link {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    color: #fef9c7;
+    background-color: #080b17ef;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .post-link span {
+    padding-left: 10px;
+    padding-top: 7px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .post-link img {
+    position: relative;
+    top: -350px; /*FIXME: This needs to be relative to the images size*/
+    float: right;
+    right: -1000px;
+
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+    transition-delay: 0.1s;
+  }
+
+  .post-link:hover img {
+    right: 0px;
+  }
+
+  .post-meta {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #fce181;
+  }
+
+  .post-list-column {
+    background-color: #080b17ef;
+  }
+
+  .post-list a:visited {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fef9c7;
+  }
+
+  .post-list .post-divider {
+    margin: auto;
+  }
+
+  .post-list-heading {
+    position: relative;
+    top: -52px;
+  }
 }
 /*************************************************************************************************/
 
@@ -345,6 +371,12 @@ a.site-title {
     padding: 10px 0;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+
+  .footer-col {
+    text-align: center;
   }
 
 }
