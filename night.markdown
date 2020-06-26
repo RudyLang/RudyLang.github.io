@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Night"
+type: nav
 permalink: /night/
 ---
 
