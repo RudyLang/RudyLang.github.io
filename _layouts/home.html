@@ -38,13 +38,25 @@ layout: default
 
     <div style="flex-grow: 7; flex-basis: 0;">
       <div class="page-feature">
-        <h2 class="feature-title">Title</h2>
-        <h4 class="feature-subtitle">Subtitle</h4>
-        <hr>
-        <h5 class="feature-date">Jun 23, 2020</h5>
-        <p class="feature-paragraph">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id augue ut nulla condimentum commodo suscipit in nisi. Curabitur pretium massa ac justo egestas, eu varius ligula convallis. Integer in cursus dui. Morbi non malesuada est. Nam commodo erat eu tellus tempus efficitur. Maecenas ut pretium magna, sed scelerisque sapien. In rutrum leo at sem fermentum commodo. Sed sed interdum libero. Vestibulum pharetra sodales arcu, sit amet tincidunt nulla fringilla vitae. Nam at nisl at odio sodales eleifend. Quisque volutpat metus ac convallis hendrerit. Sed bibendum erat id ante tincidunt iaculis. Cras eu felis a dolor hendrerit blandit a sit amet eros. Praesent rutrum felis non leo lacinia molestie. Cras eu tempor lectus, vitae porta nibh. Aliquam finibus vehicula neque, at rhoncus erat viverra vitae.
-        </p>
+        
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- for post in posts-%}
+        {%- if post.featured == true -%}
+          <h2 class="feature-title">
+            {{ post.title | escape }}
+          </h2>
+          <hr>
+          <h5 class="feature-date">
+            <span class="post-meta">
+              {{ post.date | date: date_format }}
+            </span>
+          </h5>
+          <p class="feature-paragraph">
+            {{ post.summary | escape }}
+          </p>
+          {%- endif -%}
+        {%- endfor -%}
+
       </div>
     </div>
 
