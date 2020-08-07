@@ -457,17 +457,17 @@ a.site-title {
 }
 
 .tag {
-  text-decoration: none;
-  padding-left: 10px;
+  text-decoration: none !important;
+  padding-left: 10px !important;
 }
 
 .tag code {
-  background-color: #fce181;
-  border: none;
+  background-color: #fce181 !important;
+  border: none !important;
   text-decoration: none !important;
-  color: #1d1e22;
-  font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
-  font-size: 12px;
+  color: #1d1e22 !important;
+  font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace !important;
+  font-size: 12px !important;
 }
 
 body::-webkit-scrollbar {
