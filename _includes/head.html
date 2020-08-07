@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <link rel="shortcut icon" href="{{ "/favicon.ico" | prepend: site.baseurl | prepend: site.url }}" />
   <script src="https://kit.fontawesome.com/d9f04b5675.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   {%- feed_meta -%}
@@ -11,6 +12,10 @@
     {%- include google-analytics.html -%}
   {%- endif -%}
 
+  {%- if site.tags != "" -%}
+    {%- include collecttags.html -%}
+  {%- endif -%}
+  
   {%- include custom-head.html -%}
   
 </head>

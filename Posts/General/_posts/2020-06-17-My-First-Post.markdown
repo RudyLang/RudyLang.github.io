@@ -6,6 +6,7 @@ categories: jekyll general
 image: Water_Genasi_Avatar.png
 summary: "This is my first post, click here to read me!"
 featured: true
+tags: Software Art
 ---
 
 I made a post!

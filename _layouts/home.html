@@ -38,19 +38,30 @@ layout: default
         {%- for post in posts-%}
         {%- if post.featured == true -%}
           <h2 class="feature-title">
+
             <a class="post-link" href="{{ post.url | relative_url }}">
               {{ post.title | escape }}
             </a>
+
             <div class="loading-bar-featured">&nbsp;</div>
+
           </h2>
+
           <h5 class="feature-date">
             <span class="post-meta" style="padding-left: 0;">
               {{ post.date | date: date_format }}
+            </span>
+            <span class="tag">
+              {% for tag in post.tags %}
+                {% capture tag_name %}{{ tag }}{% endcapture %}
+                <a href="/tag/{{ tag_name }}"><code>{{ tag_name }}</code>&nbsp;</a>
+              {% endfor %}
             </span>
           </h5>
           <p class="feature-paragraph">
             {{ post.summary | escape }}
           </p>
+
           {%- endif -%}
         {%- endfor -%}
 
@@ -73,6 +84,12 @@ layout: default
         {%- for post in posts -%}
         <li>
           <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <span class="tag">
+            {% for tag in post.tags %}
+              {% capture tag_name %}{{ tag }}{% endcapture %}
+              <a href="/tag/{{ tag_name }}"><code>{{ tag_name }}</code>&nbsp;</a>
+            {% endfor %}
+          </span>
           <h3>
             <a class="post-link" href="{{ post.url | relative_url }}">
               <span>{{ post.title | escape }}</span>

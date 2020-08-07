@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -8,6 +9,14 @@ layout: default
     {%include breadcrumbs.html path=page.path title=page.title %}
 
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+
+    <span class="tag">
+      {% for tag in page.tags %}
+        {% capture tag_name %}{{ tag }}{% endcapture %}
+        <a href="/tag/{{ tag_name }}"><code>{{ tag_name }}</code>&nbsp;</a>
+      {% endfor %}
+    </span>
+
     <p class="post-meta">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
