@@ -195,6 +195,7 @@ body {
     font-size: 20px;
     color: #fef9c7;
     border: 1px solid #fef9c700;
+    border-radius: 5px;
     width: 80px;
     transition-property: border;
     transition-duration: 0.1s;
@@ -312,7 +313,8 @@ a.site-title {
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-right: 3px solid #fce181;
+    border: 1px solid #fce181;
+    border-radius: 10px;
   }
 
   .post-list li img {
@@ -329,6 +331,11 @@ a.site-title {
     color: #fef9c7;
     height: 40px;
     overflow: hidden;
+  }
+
+  .post-link:hover {
+    color: #fce181;
+    text-decoration: none;
   }
 
   .post-link span {
@@ -427,7 +434,23 @@ a.site-title {
 }
 
 .post-link:hover + .loading-bar {
-  width: 90%;
+  width: 100%;
+}
+
+.loading-bar-featured {
+  height: 2px;
+  width: 10%;
+  background-color: #fce181;
+  margin: 0 auto;
+
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+  transition-delay: 0.1s;
+}
+
+.post-link:hover + .loading-bar-featured {
+  width: 100%;
 }
 
 body::-webkit-scrollbar {

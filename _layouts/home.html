@@ -38,11 +38,13 @@ layout: default
         {%- for post in posts-%}
         {%- if post.featured == true -%}
           <h2 class="feature-title">
-            {{ post.title | escape }}
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+            <div class="loading-bar-featured">&nbsp;</div>
           </h2>
-          <hr>
           <h5 class="feature-date">
-            <span class="post-meta">
+            <span class="post-meta" style="padding-left: 0;">
               {{ post.date | date: date_format }}
             </span>
           </h5>
