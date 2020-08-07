@@ -25,7 +25,10 @@ description: >- # this means to ignore newlines until "baseurl:"
   Rudy Lang - Portfolio, 2020
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  RudyLang
+
+minima:
+  social_links:
+    github: RudyLang
 
 # Build settings
 theme: minima

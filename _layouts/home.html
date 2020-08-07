@@ -24,19 +24,14 @@ layout: default
     {% assign posts = site.posts %}
   {% endif %}
 
-
-  <div class="flex-grid-headers">
-    <div style="flex-grow: 7; padding-left: 20px;">
-      Featured
-    </div>
-    <div style="flex-grow: 3; padding-left: 50px;">
-      Posts
-    </div>
-  </div>
-
   <div class="flex-grid-content">
 
-    <div style="flex-grow: 7; flex-basis: 0;">
+    <div class="feature-content">
+
+      <div class="flex-grid-headers" style="flex-grow: 7;">
+        Featured
+      </div>
+
       <div class="page-feature">
         
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
@@ -60,7 +55,12 @@ layout: default
       </div>
     </div>
 
-    <div style="flex-grow: 3; flex-basis: 0;" class="post-list-column">
+    <div class="post-list-column">
+      
+      <div class="flex-grid-headers"  style="flex-grow: 3;">
+        Posts
+      </div>
+
       {%- if posts.size > 0 -%}
       {%- if page.list_title -%}
         <h2 class="post-list-heading">{{ page.list_title }}</h2>

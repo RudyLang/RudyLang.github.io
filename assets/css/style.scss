@@ -264,11 +264,6 @@ a.site-title {
   }
 
   .flex-grid-headers {
-    display: flex;
-    align-items: stretch;
-  }
-
-  .flex-grid-headers > div {
     margin: 10px;
     text-align: left;
     line-height: 50px;
@@ -276,17 +271,28 @@ a.site-title {
   }
 
   .flex-grid-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
     display: flex;
     align-items: stretch;
+    flex-wrap: wrap;
   }
 
   .flex-grid-content > div {
     margin: 10px;
   }
 
+  .feature-content {
+    width: 950px;
+  }
+
   .page-feature {
     background-color: #080b17ef;
     border: 3px solid #fce181;
+    border-radius: 10px;
     padding: 20px;
   }
 
@@ -346,6 +352,9 @@ a.site-title {
 
   .post-list-column {
     background-color: #080b17ef;
+    flex-grow: 3;
+    flex-basis: 0;
+    border-radius: 10px;
   }
 
   .post-list a:visited {
@@ -376,10 +385,26 @@ a.site-title {
     font-weight: 300;
     margin-left: 250px;
     margin-right: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   .footer-col {
     text-align: center;
+    margin-bottom: 0px;
+  }
+
+  .social-icons i
+  {
+    color: #fce181;
+    font-size: 50px;
+    padding-right: 10px;
+  }
+
+  .social-icons i:hover
+  {
+    color: #283570;
+    font-size: 50px;
   }
 
 }
@@ -401,8 +426,20 @@ a.site-title {
   transition-delay: 0.1s;
 }
 
- .post-link:hover + .loading-bar {
+.post-link:hover + .loading-bar {
   width: 90%;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;               /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);        /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  background-color:#fce181;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgba(255, 255, 255, 0);  /* creates padding around scroll thumb */
 }
 
 
@@ -412,5 +449,6 @@ a.site-title {
 .resume {
   background-color: #080b17f3;
   padding: 10px;
+  border-radius: 10px;
 }
 /************************************************************************************************/ 
