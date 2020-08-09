@@ -21,18 +21,19 @@ What I ended up doing was designing a secret webpage with a Commodore 64 theme, 
 
 As a way to get my friends gears turnings, I sent them a lightly-encrypted email from my NPC, Jimmy. It went something like this:
 
+
+<p style="text-align: center;"><b>Warning: Explicit (18+)</b></p>
 <div class="break">&nbsp;</div>
-<br>
 <p class="quote">
 ‘Sup,<br><br>
 
-Ya might be wonderin' why I’ve contacted ya. Ya see, I know the kind of crap ya’ve been up ta, but guess what, I don’t mind. In fact, I admire it. I also know that ya could use some cash. Well I have cash, a fuckin’ lot of it. And I don’t mind givin’ it away if I get what I need. I hope ya know where I’m goin’ with this.<br><br>   
+Ya might be wonderin' why I’ve contacted ya. Ya see, I know the kind of crap ya’ve been up ta, but guess what, I don’t mind. In fact, I admire it. I also know that ya could use some cash. Well I have cash, a f*****’ lot of it. And I don’t mind givin’ it away if I get what I need. I hope ya know where I’m goin’ with this.<br><br>   
 
 Ya see the Boss is a busy man, he’s always travelin’ and makin’ deals. That’s why he brought me on. I’m good at findin’ people and findin’ things. He’s asked me to put togetha a crack team to get some shit done, ya know, under the table. To be frank this isn’t an opportunity ya should turn down.<br><br>
 
-The Boss and I have put together somethin’ revolutionary. Ain’t nobody’s done this. We’ve built a communication tool completely on the web. You fuckin’ heard me right, no phones, the whole thing is on the computa. I gotta give most of credit to the Boss though, the guy’s a genius, I simply pitched the idea to em.<br><br>
+The Boss and I have put together somethin’ revolutionary. Ain’t nobody’s done this. We’ve built a communication tool completely on the web. You f*****’ heard me right, no phones, the whole thing is on the computa. I gotta give most of credit to the Boss though, the guy’s a genius, I simply pitched the idea to em.<br><br>
 
-Ya probably wonderin’ who the fuck we is, well I can tell ya that ya’ll get to know me quite well in the next couple weeks if you decide to join. The Boss, well he’s a more complex characta. He had some big Dreams that didn’t quite pan out. Came to a new realizatin’ when he got to 33. I’d say things are lookin’ up for em now. You know, the 80s does have alota heart.<br><br>
+Ya probably wonderin’ who the f*** we is, well I can tell ya that ya’ll get to know me quite well in the next couple weeks if you decide to join. The Boss, well he’s a more complex characta. He had some big Dreams that didn’t quite pan out. Came to a new realizatin’ when he got to 38. I’d say things are lookin’ up for em now. You know, the 80s does have alota heart.<br><br>
 
 But anyway, enough of my ramblin’. If ya think ya got what it takes, ya’ll be able to find this tool of ours no problem. The first 7 of ya will get a nice bonus, how bout that!<br><br>
 

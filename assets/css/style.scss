@@ -501,8 +501,7 @@ a.site-title {
     font-weight: 100;
     border: 1px solid #fce181;
     border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 10px;
   }
 
   article .break {
@@ -510,6 +509,7 @@ a.site-title {
     width: 10%;
     background-color: #fce181;
     margin: 0 auto;
+    margin-bottom: 20px;
   }
 
   article img {
@@ -794,6 +794,26 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid rgba(255, 255, 255, 0);  /* creates padding around scroll thumb */
 }
 
+.alert {
+  padding: 20px;
+  background-color: #335aa1;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
 /************************************************************************************************/ 
 
