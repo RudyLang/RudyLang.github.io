@@ -1,5 +1,5 @@
 ---
-layout: tagpage
+layout: category
 title: "Software"
 type: nav
 permalink: /Software/

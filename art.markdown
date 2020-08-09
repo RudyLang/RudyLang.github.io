@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: category
 title: "Art"
 type: nav
 permalink: /Art/
