@@ -226,7 +226,6 @@ body {
     color: #fef9c7;
     border: 1px solid #fef9c700;
     border-radius: 5px;
-    width: 80px;
     transition-property: border;
     transition-duration: 0.1s;
     transition-timing-function: linear;
@@ -305,7 +304,7 @@ a.site-title {
   }
 
   .feature-content {
-    width: 950px;
+    width: 1000px;
   }
 
   .page-feature {
@@ -333,13 +332,15 @@ a.site-title {
     width: 100%;
     border: 1px solid #fce181;
     border-radius: 10px;
+    max-height: 300px;
   }
 
   .post-list li img {
     pointer-events: none;
+    pointer-events: none;
+    opacity: 1.0;
     position: absolute;
-    z-index: -1;
-    top: -200px; /*FIXME: Calculate this value or come up with a standardization*/
+    top: 0px;
   }
 
   .post-link {
@@ -347,7 +348,6 @@ a.site-title {
     font-weight: 400;
     font-style: italic;
     color: #fef9c7;
-    height: 40px;
     overflow: hidden;
   }
 
@@ -365,6 +365,14 @@ a.site-title {
   .post-list p {
     padding-left: 10px;
     margin-top: -10px;
+  }
+
+  .post-list li img {
+    pointer-events: none;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
   }
 
   .post-meta {
@@ -403,6 +411,27 @@ a.site-title {
     width: 50%;
     background-color: #fce181;
     margin: 0 auto;
+  }
+
+  .more {
+    position: relative;
+    bottom: 0px;
+    text-align: right;
+    padding: 10px;
+  }
+
+  .more a {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    color: #fef9c7;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .more a:visited {
+    color: #fce181;
   }
 }
 /************************************************************************************************/
@@ -473,13 +502,15 @@ a.site-title {
     width: 100%;
     border: 1px solid #fce181;
     border-radius: 10px;
+    max-height: 300px;
   }
 
   .post-list li img {
     pointer-events: none;
+    opacity: 1.0;
     position: absolute;
+    top: 0px;
     z-index: -1;
-    top: -200px; /*FIXME: Calculate this value or come up with a standardization*/
   }
 
   .post-link {
@@ -536,6 +567,27 @@ a.site-title {
   .post-list-heading {
     position: relative;
     top: -52px;
+  }
+
+  .more {
+    position: relative;
+    bottom: 0px !important;
+    text-align: right;
+    padding: 10px;
+  }
+
+  .more a {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    color: #fef9c7;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .more a:visited {
+    color: #fce181;
   }
 }
 /*************************************************************************************************/
