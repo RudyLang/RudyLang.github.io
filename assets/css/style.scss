@@ -433,7 +433,7 @@ a.site-title {
     width: 10%;
     background-color: #fce181;
     margin: 0 auto;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   article img {
@@ -441,6 +441,17 @@ a.site-title {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+  }
+
+  article .spoiler {
+    color: #fce181;
+    background-color: #fce181;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
+  article .spoiler:hover {
+    background-color: #fce18100;
   }
 
   .loading-bar-featured {
@@ -519,6 +530,21 @@ a.site-title {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
+  }
+
+  article .spoiler {
+    text-align: center;
+  }
+
+  article .spoiler span {
+    color: #fce181;
+    background-color: #fce181;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  article .spoiler span:hover {
+    background-color: #fce18100;
   }
 
   .flex-grid-headers {

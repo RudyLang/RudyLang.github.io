@@ -5,7 +5,7 @@ date: 2020-08-07 13:57:00 -0000
 categories: software
 image: mmcommodore.png
 summary: "A Murder Mystery Dinner goes virtual! I put my guests through an Alternate Reality Game (ARG) before the big event."
-tags: Erlang Phoenix Firebase
+tags: React Redux Firebase
 featured: true
 ---
 
@@ -47,4 +47,18 @@ Be logged into your anonymous gmail account while you do this. When you log into
 Once in, join the room “Jimmy” by entering it into the “Join a Room” box. Ignore the other features at this time. You can navigate between the landing page and the chat rooms by clicking “Commodore” in the top left.<br>
 </p>
 
+You should take a minute and see if you can find the 3 clues 😉 (hover over the box below to reveal the answers!)
 
+
+<div class="spoiler"><span>Dreams, 38, heart</span></div>
+
+
+These clues were intended to lead my guests to the song "These Dreams" by Heart, released in 1985 — a great hit in my opinion!
+From here they would need to disect the song and figure out how the "38" fits in. If one was to count the lyrics line by line down to 38, they would read "The sweetest song is silence." Entering the url <a href="www.thesweetestsongissilence.com">thesweetestsongissilence.com</a> took them to this landing page:
+
+
+<img src="/post_images/thesweetestsongissilence.PNG">
+
+
+I chose to work with Firebase because it offered a lightweight and ready-to-launch solution for a simple web app like this. Being a Google product it offered easy sign-in integration for my users, given that they were required to use gmail accounts. All I had to do was enable that provider and authorize my domain.
+I redirect my users to a Google sign-in portal, and once verified, I pass the returned token (along with their user ID) to firebase via json. After joining, Firebase adds them to a list of authenticated users, which is then referenced by the app to determine access privileges. 
