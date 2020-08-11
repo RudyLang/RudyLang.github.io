@@ -214,6 +214,8 @@ makeid() {
 </pre>
 </div>
 
+What could have I improved on? The "Leave Room" button was decieving, it was designed to actually remove the user from the room, so that they no longer received updates for it. My users however, assumed it worked more like a back button. So they were constantly having to search for and re-join the room. I could alleviate this by designing a more obvious "Return Home" button, or perhaps using a tooltip.
+
 ### Wallet System
 
 Another endeavour I took on was the creation of a wallet system. Like I mentioned before, money was a huge part of this game. It was to be used to negotiate, buy intel, and win prizes. I had to come up with a way for my users to make trasactions in a meaningful way.
@@ -234,3 +236,56 @@ Technical Requirements:
 
 The first step was to assign each registered user a "wallet" property. This was simply a field of integer value within our realtime database.
 By design, I set each users' initial balance to 500. 
+I would then track any changes to wallet using a store which I called "bank." I created basic actions for the store such as initialization and balance return. The less basic algorithm was my "send money" function, which needed to get both the sender and receiver IDs, subtract and add their balances respectively, and then update both wallets.<br>
+I set it up like this:
+
+<div class="article-code">
+<pre>
+// Substract cash value from sender waller, add that amount to reciever wallet.
+// If sender wallet does not have appropriate funds, bypass the database update.
+
+export const startSendMoney = (cash, receiver_user_id, sender_user_id) => {
+    return (dispatch, getState) => {
+
+        let noFunds = false;
+
+        return database.ref(`users/${sender_user_id}/wallet`).once('value', (snapshot) => {
+            const value = snapshot.val();
+            if (value === null) {
+                console.log("Where's my wallet!");
+            } else {
+                const update_balance = value.balance - parseInt(cash);
+                if (update_balance >= 0) {
+                    database.ref(`users/${sender_user_id}/wallet`).set({ balance: update_balance });
+                    dispatch(getWalletBalance(update_balance));
+                } else {
+                    noFunds = true; // If the updated_balance is <= 0, then the sender does not have the appropriate funds; set flag
+                }
+            }
+            return database.ref(`users/${receiver_user_id}/wallet`).once('value', (snapshot) => {
+                const value = snapshot.val();
+                if (value === null) {
+                    console.log("Where's my wallet!");
+                } else {
+                    const update_balance = value.balance + parseInt(cash);
+
+                    // Only update the receivers wallet property if there were enough funds available
+                    if (!noFunds) {
+                        database.ref(`users/${receiver_user_id}/wallet`).set({ balance: update_balance });
+                    }
+                }
+            });
+        });
+    }
+}
+</pre>
+</div>
+
+In general, it was a fairly simple design. However, it achieved everything I needed for the event. How could I improve the system? It would have been nice to provide the user with a warning/confirmation if they were about to send cash. This way they could avoid mistakenly sending the wrong amount. I think part of this could have been handled purely using a confirm() method. And then I would go one step ahead and retrieving the user's balance, calculatin the difference in realtime.
+
+<br>
+So that's all I wanted to share regarding my little ARG project! I hope you found the read interesting, perhaps even inspiring? I'll certainly make a post later and discuss the actual plot along with the dinner's event. Stay tuned!
+
+Cheers,
+
+_-Rudy_
