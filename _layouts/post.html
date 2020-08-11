@@ -38,6 +38,10 @@ layout: default
       {%- endif -%}</p>
   </header>
 
+  {% if page.unity_dir %}
+    {% include page__unity.html %}
+  {% endif %}
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
