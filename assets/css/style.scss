@@ -93,6 +93,7 @@ body {
     margin-left: unset;
     flex-grow: 1;
     text-align: right;
+    line-height: 1;
     padding: 5px;
     padding-right: 20px;
     font-family: 'Source Sans Pro', sans-serif;
@@ -100,6 +101,11 @@ body {
     text-transform: uppercase;
     font-size: 30px;
     color: #fef9c7;
+  }
+
+  .site-nav .page-link a {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .site-nav .page-link:not(:last-child) {
@@ -454,6 +460,16 @@ a.site-title {
     background-color: #fce18100;
   }
 
+  article .article-code {
+    margin: 0 auto;
+  }
+
+  article pre {
+    background-color: #fce181;
+    border-color: #fce181;;
+    color: #080b17;
+  }
+
   .loading-bar-featured {
     height: 2px;
     width: 50%;
@@ -545,6 +561,17 @@ a.site-title {
 
   article .spoiler span:hover {
     background-color: #fce18100;
+  }
+
+  article .article-code {
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  article pre {
+    background-color: #fce181;
+    border-color: #fce181;;
+    color: #080b17;
   }
 
   .flex-grid-headers {
