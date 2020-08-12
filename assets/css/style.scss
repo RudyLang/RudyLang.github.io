@@ -342,14 +342,6 @@ a.site-title {
     max-height: 300px;
   }
 
-  .post-list li img {
-    pointer-events: none;
-    pointer-events: none;
-    opacity: 1.0;
-    position: absolute;
-    top: 0px;
-  }
-
   .post-link {
     font-family: 'Libre Baskerville', serif;
     font-weight: 400;
@@ -375,9 +367,9 @@ a.site-title {
 
   .post-list li img {
     pointer-events: none;
-    opacity: 0.3;
+    opacity: 1.0;
     position: absolute;
-    top: 0px;
+    top: -100px;
     z-index: -1;
   }
 
@@ -634,7 +626,8 @@ a.site-title {
     pointer-events: none;
     opacity: 1.0;
     position: absolute;
-    top: 0px;
+    top: -150px;
+    right: 0px;
     z-index: -1;
   }
 
