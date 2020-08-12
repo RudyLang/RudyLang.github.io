@@ -11,15 +11,19 @@ featured: true
 
 <img src="/post_images/mmcommodore.png">
 
-I'm fortunate to have a group of friends who are not shy when it comes to role-playing. I've taken advantage of this by holding a biennial (an event occuring every two years) Murder Mystery dinner. In 2018 I took it upon myself to organize the most ambitious one yet. I would have the guests interact with each other, anonymously, through an alternate reality game (ARG).
+### Project Highlights:
+* [Motivation](#ARG-Motivation)
+* [Firebase](#ARG-Firebase)
+* [Chat Rooms](#ARG-Chat)
+* [Wallet System](#ARG-Wallet)
 
-I have to give credit to my inspiration for this: The Secret World. Yes the MMO. Prior to its launch, Funcom develop a series of ARGs from 2007 to 2012. These were incredibly detailed puzzles filled with unique imagery, lore, and riddles. They had players scouring the Internet and using all means of software to crack the codes. Each piece revealed more and more about the game itself. In the end we were rewarded with a special token which was presumably a beta key. I've yet to experience a game which has captured my imagination in the same way. 
+### <a id="ARG-Motivation"></a> Motivation
+My friends love to roleplay, so I hold a Murder Mystery dinner event every two years. In 2018, I organized the event with an alternate reality game (ARG) component. I was inspired by Funcom's MMO, The Secret World, which used ARG puzzles to promote the game before it's release. The games were detailed puzzles full of unique imagery and lore. The end reward was a special token, a beta key. No game since has captured my imagination quite the same way. 
 
-With this ARG still in mind, I set out to make a similar experience for my guests. For me this was also an opportunity to try out some new web technologies. I had already decided on my theme for the event: 80's crime. Drugs, money, and big hair if you can imagine. Now, if the event takes place in the 80's, how do I incorporate an online ARG? Luckily there existed a beast with 64 KB of RAM and a 320x200 pixel resolution! The Commodore 64. You may have guessed from the accompanying image 🧐.
+I set out to make a similar experience for my friends. The event's theme was 80's crime. Think drugs, money, and big hair. I would also use the pinnacle of 80's technology, the Commodore 64, as the theme for the ARG. I sent my friends a message from my character, the crime boss's assistant Jimmy. In the message, they would find the password to log onto a secret Commodore 64-themed web page.
 
-What I ended up doing was designing a secret webpage with a Commodore 64 theme, which would function as an anonymouse chatroom for my guests. I'll have to layout the entirety of the plot in another post, for this one I will cut to the goods and focus on the tech.
+Here was the opening message: 
 
-As a way to get my friends gears turnings, I sent them a lightly-encrypted email from my NPC, Jimmy. It went something like this:
 
 
 <p style="text-align: center;"><b>Warning: Explicit (18+)</b></p>
@@ -47,21 +51,20 @@ Be logged into your anonymous gmail account while you do this. When you log into
 Once in, join the room “Jimmy” by entering it into the “Join a Room” box. Ignore the other features at this time. You can navigate between the landing page and the chat rooms by clicking “Commodore” in the top left.<br>
 </p>
 
-You should take a minute and see if you can find the 3 clues 😉 (hover over the box below to reveal the answers!)
-
+There are three clues in the message. You can hover over the box below to reveal them!
 
 <div class="spoiler"><span>Dreams, 38, heart</span></div>
 <br>
 
-These clues were intended to lead my guests to the song "These Dreams" by Heart, released in 1985 — a great hit in my opinion!
-From here they would need to disect the song and figure out how the "38" fits in. If one was to count the lyrics line by line down to 38, they would read "The sweetest song is silence." Entering the url <a href="www.thesweetestsongissilence.com">thesweetestsongissilence.com</a> took them to this landing page:
+The password was the 38th line from the song "These Dreams: by Heart, released in 1985. The URL for the website was the lyric "[thesweetestsongissilence.com](thesweetestsongissilence.com)". This was the landing page: 
 
 
 <img src="/post_images/thesweetestsongissilence.PNG">
 
 
-I chose to work with Firebase because it offered a lightweight and ready-to-launch solution for a simple web app like this. Being a Google product it offered easy sign-in integration for my users, given that they were required to use gmail accounts. All I had to do was enable that provider and authorize my domain.
-I redirect my users to a Google sign-in portal, and once verified, I pass the returned token (along with their user ID) to firebase via json. After joining, Firebase adds them to a list of authenticated users, which is then referenced by the app to determine access privileges. Here's a few code snapshots:
+### <a id="ARG-Firebase"></a> Firebase
+
+I chose to work with Firebase because it offered a lightweight and ready-to-launch solution for a simple web app like this. As a Google product, it offered easy sign-in integration for my users, who used Gmail accounts. All I had to do was enable that provider and authorize my domain. I redirect my users to a Google sign-in portal, and once verified, I pass the returned token (along with their user ID) to Firebase via JSON. After joining, Firebase adds them to a list of authenticated users, which the app references to determine access privileges. Here are a few code snapshots:
 
 <div class="article-code">
 <pre>
@@ -149,20 +152,24 @@ firebase.auth().onAuthStateChanged((user) => {
 </pre>
 </div>
 
-Below is what the landing page ended up looking like. Reminder that this was purposely made to look retro (Commordore 64!); but, I will admit that some of the formatting was rushed to meet my deadline. In other words its not exactly as flexible as I'd like. The left column shows the rooms that the user is part of, as well as its respective message count. The four boxes in the middle are fairly literal. The wallet in the top right corner displays the user's cash amount, which actually played a huge role throughout the game!
+After log-in, my users were greeted with this retro Commodore 64-like page. I rushed the formatting a bit to make it in time for the event, but I'm pleased with the results. The left column shows the chat rooms the user has joined, and the top right corner is the user's wallet. The four boxes in the middle are literal. 
+
 
 <img src="/post_images/commodorechat.PNG">
 
-
+<br>
 Let's break down each section:
-### Chat Rooms
 
-My idea with the chat rooms is that I could create two avenues for plot development throughout the game. In one manner, I would roleplay one of the NPCs and provide clues not only to the ARG, but to events for the dinner itself! The players' would have to engage with me through these rooms in order to progress in the game. I did not have enough time to set up a proper "password" system for rooms, so instead users' would need to figure out the name of the next room. I would reward the first few entrants a cash amount as motivation. The avenue of development would be facilitated with private chat rooms that could be created between users. Users could use these rooms to trade secrets, form alliances, and backstand. And they did! Here's a snap shot of one of the rooms (the final room actually):
+### <a id="ARG-Chat"></a> Chat Rooms
+
+The chat room provided the first avenue for plot development. The second opportunity would be the in-person dinner held a few weeks later. I would roleplay Jimmy in both contexts. The players could engage with me, or each other, in both as well. 
+In order to access the chat rooms, the users had to figure out the name of the room. The first few users to get it right got a cash award in-game. Once in the room, users could trade secrets, form alliances and backstab each other, and they did! Here's a snapshot of the final room: 
+
 
 <p style="text-align: center;"><b>Warning: Explicit (18+)</b></p>
 <img src="/post_images/commodorejimmy.PNG">
 
-Every chat room was stored as an entry inside a realtime Firebase database, which allowed for a quick and easy way to sync and retrieve data. Each room had three properties: messages, name, and people. Name was simply the name of the room, while messages and people held information such as usernames, message content, sender, date and time. The structure was like this:
+Every chat room was stored as an entry inside a real-time Firebase database, which allowed for a quick and easy way to sync and retrieve data. Each room had three properties: messages, name, and people. Name was simply the name of the room, while messages and people held information such as usernames, message content, sender, date and time. This was the structure:
 
 <div class="article-code">
 <pre>
@@ -186,7 +193,8 @@ Project
 </pre>
 </div>
 
-Private rooms could be accessed by selecting that user's name from a drop down menu. I had to be a little but creative with this because if the room were to be named after the user (an exact match), anyone could access that room if they wished. This was definitely a massive flaw in my design, but I came up with a decent bandaid to fix it. All I did was appened the user's codename with 5 unique alphanumeric characters: 
+
+I could access the user's private room by selecting their name from a drop-down menu. Although, it couldn't be an exact match for their name or anyone could access the room. This was a flaw in my design, but I added five unique alphanumeric characters to each name to solve the problem. 
 
 <div class="article-code">
 <pre>
@@ -214,11 +222,11 @@ makeid() {
 </pre>
 </div>
 
-What could have I improved on? The "Leave Room" button was decieving, it was designed to actually remove the user from the room, so that they no longer received updates for it. My users however, assumed it worked more like a back button. So they were constantly having to search for and re-join the room. I could alleviate this by designing a more obvious "Return Home" button, or perhaps using a tooltip.
+I also could have improved on the "leave room" button. The users assumed it worked like a back button, but it was actually designed to remove them from the room entirely. So, they had to search for and rejoin the room when they used it. I could have designed a "return home button" or used a tooltip to fix this.
 
-### Wallet System
+### <a id="ARG-Wallet"></a> Wallet System
 
-Another endeavour I took on was the creation of a wallet system. Like I mentioned before, money was a huge part of this game. It was to be used to negotiate, buy intel, and win prizes. I had to come up with a way for my users to make trasactions in a meaningful way.
+Money was a huge part of the game. Users could buy intel, negotiate and win prizes with it. So, they had to be able to make meaningful transactions. 
 
 Customer Requirements:
 * Check balance
@@ -230,13 +238,12 @@ Technical Requirements:
 * Track balance
 * Display balance
 * Send money
-    * Calculate if possible (can't send money you don't have)
+    * Calculate if it's possible to send money (so users can't send money they don't have)
 * Receive money
-    * Update total
+    * Update money
 
-The first step was to assign each registered user a "wallet" property. This was simply a field of integer value within our realtime database.
-By design, I set each users' initial balance to 500. 
-I would then track any changes to wallet using a store which I called "bank." I created basic actions for the store such as initialization and balance return. The less basic algorithm was my "send money" function, which needed to get both the sender and receiver IDs, subtract and add their balances respectively, and then update both wallets.<br>
+First, I assigned each user a "wallet" property. This wallet was simply a field of integer value within the real-time database. By design, I set each users' initial balance to 500. I would then track any changes to wallet using a store that I called "bank." I created basic actions for the store, such as initialization and balance return. I also added a "send money" function, which needed to get both the sender and receiver IDs, subtract and add their balances respectively, and then update both wallets.
+
 I set it up like this:
 
 <div class="article-code">
@@ -283,10 +290,10 @@ export const startSendMoney = (cash, receiver_user_id, sender_user_id) => {
 </pre>
 </div>
 
-In general, it was a fairly simple design. However, it achieved everything I needed for the event. How could I improve the system? It would have been nice to provide the user with a warning/confirmation if they were about to send cash. This way they could avoid mistakenly sending the wrong amount. I think part of this could have been handled purely using a confirm() method. And then I would go one step ahead and retrieving the user's balance, calculatin the difference in realtime.
+This reasonably simple design achieved everything I needed for the event. Although, I did see a few ways I could improve the project. It would have been nice to provide the user with a warning/confirmation if they were about to send cash. This way, they could avoid mistakenly sending the wrong amount. I could have handled part of this using a confirm() method. And then, I would go one step ahead and retrieve the user's balance, calculating the difference in real-time.
 
 <br>
-So that's all I wanted to share regarding my little ARG project! I hope you found the read interesting, perhaps even inspiring? I'll certainly make a post later and discuss the actual plot along with the dinner's event. Stay tuned!
+The ARG portion of the event was a success. All 14 people participated, chatted in several rooms and made several transactions. In a the later post, I'll discuss the actual plot and the in-person event! 
 
 Cheers,
 

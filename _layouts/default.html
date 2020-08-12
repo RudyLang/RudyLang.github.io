@@ -11,6 +11,8 @@
 
     {%- include header.html -%}
 
+    <a id="backToTop"></a>
+
     <main class="page-content" aria-label="Content">
       <div class="content-wrapper">
         {{ content }}
@@ -31,4 +33,22 @@
   toggleElement.addEventListener('click', function() {
     triggerElement.classList.toggle('active');
   })
+</script>
+
+<script>
+  var btn = $('#backToTop');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
 </script>
