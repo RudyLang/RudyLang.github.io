@@ -259,7 +259,9 @@ export const startSendMoney = (cash, receiver_user_id, sender_user_id) => {
                     database.ref(`users/${sender_user_id}/wallet`).set({ balance: update_balance });
                     dispatch(getWalletBalance(update_balance));
                 } else {
-                    noFunds = true; // If the updated_balance is <= 0, then the sender does not have the appropriate funds; set flag
+                    // If the updated_balance is <= 0,
+                    // then the sender does not have the appropriate funds; set flag
+                    noFunds = true;
                 }
             }
             return database.ref(`users/${receiver_user_id}/wallet`).once('value', (snapshot) => {

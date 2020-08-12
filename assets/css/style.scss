@@ -503,8 +503,8 @@ a.site-title {
 @media only screen and (min-width: 600px) {
   .page-content {
     background-color: #1d1e2200;
-    padding-left: 250px;
-    padding-right: 250px;
+    width: 50%;
+    margin: 0 auto;
   }
 
   .content-wrapper {
@@ -599,7 +599,7 @@ a.site-title {
   }
 
   .feature-content {
-    width: 950px;
+    width: auto;
   }
 
   .page-feature {
@@ -757,10 +757,10 @@ a.site-title {
     padding: 10px 0;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    margin-left: 250px;
-    margin-right: 250px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
   }
 
   .footer-col {
