@@ -5,7 +5,7 @@ type: nav
 permalink: /resume/
 order: 2
 ---
-Please contact me at [RudyLang@live.ca](mailto:r.lang.dev@gmail.com) for my formal resume.
+Please contact me at [r.lang.dev@gmail.com](mailto:r.lang.dev@gmail.com) for my formal resume.
 
 ### Technical Competencies
 __Languages:__ C++ (primary), C#, Python, C, JavaScript, HTML, CSS, SQL<br>
