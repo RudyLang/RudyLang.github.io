@@ -6,7 +6,6 @@ categories: software
 image: mmcommodore.png
 summary: "A Murder Mystery Dinner goes virtual! I put my guests through an Alternate Reality Game (ARG) before the big event."
 tags: React Redux Firebase
-featured: true
 ---
 
 <img src="/post_images/mmcommodore.png">

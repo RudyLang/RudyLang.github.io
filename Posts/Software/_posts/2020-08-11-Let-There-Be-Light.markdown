@@ -8,4 +8,11 @@ summary: "I dip my feet into the modding world on a Conan Exiles quality of life
 tags: Blender Unreal
 ---
 
-<img src="/post_images/foggy_candles_main.png">
+<img id="myImg" src="/post_images/foggy_candles_main.png">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>

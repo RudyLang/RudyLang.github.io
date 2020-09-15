@@ -9,7 +9,7 @@ Please contact me at [r.lang.dev@gmail.com](mailto:r.lang.dev@gmail.com) for my 
 
 ### Technical Competencies
 __Languages:__ C++ (primary), C#, Python, C, JavaScript, HTML, CSS, SQL<br>
-__Technologies:__ Unreal, Unity, Blender, MongoDB, Postgresql, Jenkins, Vue.js, Express.js, Django, BitBucket, Github, Gerrit, Git, Linux
+__Technologies:__ Unreal, Unity, Blender, MongoDB, MySQL, Jenkins, Vue.js, Express.js, Django, BitBucket, Github, Gerrit, Git, Linux
 
 ### Work Experience
 __Software Engineer__ — General Motors, April 2018 - Present <br>
