@@ -276,7 +276,72 @@ In action:
 
 <img class="myImg" src="/post_images/report_trendline_anim.gif">
 
-Last but not least was the data table. 
+Last but not least was the data table. Another good thing about vuetify is that it has these greate data table components that handle alot of the filtering for you. As long as you have your data objects setup correctly it's pretty much plug-n-play. All I had to do was pass the response data in to the :items prop of the data table. It works really nicely:
+
+<img class="myImg" src="/post_images/report_table_anim.gif">
 
 
 ### <a id="BugReport-Crash-Reporter"></a> Crash Reporter
+
+As an extra step, I thought I would mimic a crash report sequence. Like many of us have experienced before: our game client crashes, and this little crash report window appears at the center of the screen. It tells a bit about what's happened, and requests feedback for analysis.
+
+I've worked with Windows Forms Apps (C#/.NET) before so I thought would be a great platform to try this out on. It also turns out that MySQL has a .NET Connector that makes queries really straightforward:
+
+<div class="article-code">
+<pre>
+string connectionString;
+MySqlConnection conn;
+
+connectionString = "server=127.0.0.1;port=3306;uid=Rudy;pwd=manonmyshoulder;database=bugs";
+
+try
+{
+    conn = new MySqlConnection();
+    conn.ConnectionString = connectionString;
+    conn.Open();
+
+  ...
+</pre>
+</div>
+
+Once the connection is established, I can grab any data in the form and execute the SQL statement. I chose a hardcoded error type for now (VertexShader).
+
+<div class="article-code">
+<pre>
+// Grab Error Type
+string errorType = "VertexShader";
+
+// Grab comments
+string comments = "";
+comments = textBox1.Text;
+
+// Grab date, hour, and minute
+DateTime date = DateTime.Today;
+int hour = DateTime.Now.Hour;
+int minute = DateTime.Now.Minute;
+
+MySqlCommand comm = conn.CreateCommand();
+comm.CommandText = "INSERT INTO reports(type, comment, date, hour, minute) VALUES(?type, ?comment, ?date, ?hour, ?minute)";
+comm.Parameters.Add("?type", MySqlDbType.VarChar).Value = errorType;
+comm.Parameters.Add("?comment", MySqlDbType.VarChar).Value = comments;
+comm.Parameters.Add("?date", MySqlDbType.Date).Value = date;
+comm.Parameters.Add("?hour", MySqlDbType.Int16).Value = hour;
+comm.Parameters.Add("?minute", MySqlDbType.Int16).Value = minute;
+comm.ExecuteNonQuery();
+</pre>
+</div>
+
+<img class="myImg" src="/post_images/report_form.PNG">
+
+Here it is in action:
+
+<img class="myImg" src="/post_images/report_form_anim.gif">
+
+
+I hope you enjoyed my project! All source code can be found on my github:
+
+<https://github.com/RudyLang/BugReporter><br>
+<https://github.com/RudyLang/BugReportForm>
+
+Cheers,<br>
+__Rudy__
