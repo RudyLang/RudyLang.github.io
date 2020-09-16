@@ -925,7 +925,7 @@ body::-webkit-scrollbar-thumb {
   margin: auto;
   display: block;
   width: 80%;
-  max-width: 3000px;
+  max-width: 2000px;
 }
 
 /* Caption of Modal Image */
@@ -1016,3 +1016,8 @@ body::-webkit-scrollbar-thumb {
   padding-bottom: 10px;
 }
 /************************************************************************************************/ 
+
+/****************************************** Categories ******************************************/ 
+.category-content a:hover {
+  color: #FF9800;
+}

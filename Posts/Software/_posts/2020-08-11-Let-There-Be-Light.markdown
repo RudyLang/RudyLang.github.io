@@ -8,6 +8,8 @@ summary: "I dip my feet into the modding world on a Conan Exiles quality of life
 tags: Blender Unreal
 ---
 
+> Article is being updated
+
 <img id="myImg" src="/post_images/foggy_candles_main.png">
 
 <!-- The Modal -->
