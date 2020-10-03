@@ -3,10 +3,13 @@ layout: post
 title: "Unity CI Build Reporter"
 date: 2020-09-30 10:12:00 -0000
 categories: software
-image: bug_reporter_app.PNG
+image: build_reporter_main.PNG
 summary: "I combine Unity, Jenkns, ExpressJS, VueJS, and MySQL to create a fullstack build reporting system."
 tags: NodeJS ExpressJS VueJS MySQL Unity Jenkins
+featured: true
 ---
+
+<img class="myImg" src="/post_images/build_reporter_main.PNG">
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -18,7 +21,7 @@ tags: NodeJS ExpressJS VueJS MySQL Unity Jenkins
 ### Project Highlights:
 * [Motivation](#BuildReport-Motivation)
 * [Setting up the Jenkins Build](#BuildReport-Jenkins)
-* [Database Connection](#BuildReport-Database)
+* [Database Setup](#BuildReport-Database)
 * [Backend](#BuildReport-Backend)
 * [Frontend](#BuildReport-Frontend)
 
@@ -95,7 +98,7 @@ C:\Users\RudyL\Anaconda3\python.exe report_parser.py
 </div>
 
 
-### <a id="BuildReport-Database"></a> Database Connection
+### <a id="BuildReport-Database"></a> Database Setup
 
 For the database connection all I wanted was a python script that would feed data to the MySQL database. The first thing I needed to determine was what information I wanted to store. After reading through the generate build log, I found a few convenient options:
 
@@ -105,6 +108,201 @@ For the database connection all I wanted was a python script that would feed dat
 * Build Time
 * Build Status (Success or Fail)
 
-These items were sufficient given the small scope of the project. Now know this information, I set up a new table in my builds database:
+These items were sufficient given the small scope of the project. Now knowing this information, I set up a new table in my builds database:
 
 <img class="myImg" src="/post_images/build_sql_table.PNG">
+
+These field names are what I'll be using to query the database. Python conveniently has a mysql connector that you can import and configure. Here's a condensed snippet of the general setup:
+
+<div class="article-code">
+<pre>
+import mysql.connector
+
+# Setup MySQL connector
+mydb = mysql.connector.connect(
+    host="localhost",
+    username="Rudy",
+    password="mypassword",
+    port="3306",
+    database="builds"
+)
+
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO unity (
+  build_number, 
+  build_type, 
+  build_size, 
+  build_time, 
+  build_status, 
+  build_link
+) 
+VALUES (%s, %s, %s, %s, %s, %s)"
+val = (
+  build_number, 
+  build_type, 
+  build_size, 
+  build_time, 
+  build_status, 
+  build_link
+)
+mycursor.execute(sql, val)
+
+mydb.commit()
+</pre>
+</div>
+
+The values for these fields can be parsed in various ways. I went for the line by line approach and searched for unique substrings.
+Here's an example:
+<div class="article-code">
+<pre>
+for line in Lines:
+      if "Complete build size" in line:
+        build_size = line.split("Complete build size    ",1)[1]
+        build_size.strip()
+</pre>
+</div>
+
+The split() function is very handy as it will just grab the rest of string following a specified substring. And it's a good idea to use strip() to remove any leading or trailing white spaces. For cases where the information is nested between two substrings, I used search():
+
+<div class="article-code">
+<pre>
+if "Build Type" in line:
+  build_type = re.search("Build Type '(.*)'", line)
+  build_type = build_type.group(1)
+  build_type.strip()
+</pre>
+</div>
+
+Normally search() is used to find a specific regular expression; however, all I'm telling it to do is grab any pattern (hence the greedy wild card '.*') between two substrings. The group() method just allows me to access those captured substrings. 
+
+Admittedly that's all there is to it. A real minimal-viable product!
+
+### <a id="BuildReport-Backend"></a> Backend
+
+I made things easy for myself and recycled the backend from my [Game Crash Reporter](http://localhost:4000/posts/software/2020/09/14/Game-Crash-Reporter.html).
+So essentially Express with the MySQL node module. I set up my model, controller, and route like so:
+
+<div class="article-code">
+<pre>
+// model.js
+var mysql = require('./db.js');
+
+var Build = function(build) {
+    this.build_number = build.build_number;
+}
+
+Build.getAllBuilds = function (result) {
+    mysql.query("SELECT * FROM unity", function (err, res) {
+        if (err) {
+            result(null, err);
+        }
+        else {
+            console.log('builds: ', res);
+            result(null, res);
+        }
+    });
+};
+
+module.exports = Build;
+</pre>
+</div>
+
+<div class="article-code">
+<pre>
+// controller.js
+var Build = require("../model/model")
+
+exports.list_all_builds = function (req, res) {
+    Build.getAllBuilds(function(err, build) {
+        if (err) {
+            res.send(err);
+            console.log('res', build);
+        }
+        res.send(build);
+    });
+};
+</pre>
+</div>
+
+<div class="article-code">
+<pre>
+// route.js
+module.exports = function(app) {
+    var builds = require('../controller/controller');
+
+    app.route('/builds')
+        .get(builds.list_all_builds);
+};
+</pre>
+</div>
+
+### <a id="BuildReport-Frontend"></a> Frontend
+
+And once again I turn to my good friends Vue and Vuetify to solve my frontend problems. Vuetify has these really fantastic data table components that were perfect for this project. They even come with a "filterable" property that allows for native search, right in the component! No funny business.
+What I had to do was populate the headers with values that matched those within database:
+
+<div class="article-code">
+<pre>
+  data() {
+    return {
+      builds: [],
+      search: "",
+      headers: [
+        { text: "Number", align: "center", sortable: true, value: "build_number" },
+        { text: "Type", sortable: true, value: "build_type" },
+        { text: "Size", sortable: true, value: "build_size" },
+        { text: "Time", sortable: true, value: "build_time" },
+        { text: "Status", sortable: true, value: "build_status" },
+        { text: "Timestamp", sortable: true, value: "timestamp" },
+        { text: "Link", sortable: true, value: "build_link" }
+      ],
+    };
+  },
+</pre>
+</div>
+
+This way when I get my response from the backend, I can feed the data directly into that 'builds' array. And that array is then passed to the ":items" property for the data table!
+
+<div class="article-code">
+<pre>
+  async created() {
+    try {
+      let res = await this.$http({
+        url: 'http://localhost:3000/builds',
+        method: 'get',
+        timeout: 8000,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      if(res.status == 200){
+          console.log(res.status);
+      }
+      this.builds = res.data;    
+      return res.data;
+    }
+    catch (err) {
+      console.error(err);
+    }
+  },
+</pre>
+</div>
+
+<div class="article-code">
+<pre>
+// In the template
+ <v-data-table 
+      :headers="headers"
+      :items="builds"
+      :search="search"
+      :items-per-page="10">
+
+    ...
+  </v-data-table>
+</pre>
+</div>
+
+Let's see the whole thing in action!
+
+<img class="myImg" src="/post_images/build_reporter.gif">

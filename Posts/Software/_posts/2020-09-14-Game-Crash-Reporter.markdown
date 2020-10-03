@@ -6,7 +6,6 @@ categories: software
 image: bug_reporter_app.PNG
 summary: "I combine ExpressJS, VueJS, and MySQL to create a fullstack error reporting system."
 tags: NodeJS ExpressJS VueJS MySQL C#
-featured: true
 ---
 
 <img class="myImg" src="/post_images/bug_reporter_app.PNG">
