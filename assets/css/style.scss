@@ -492,6 +492,24 @@ a.site-title {
   .more a:visited {
     color: #fce181;
   }
+
+  /* Marckdown table settings */
+  table {
+    color: #fef9c7;
+  }
+
+  table th {
+    background: none;
+  }
+
+  table tr {
+    background: none !important;
+  }
+
+  table tr, table th, table td {
+    border: 1px solid #fce181 !important;
+  }
+  /* End Markdown table settings */
 }
 /************************************************************************************************/
 

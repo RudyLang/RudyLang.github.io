@@ -8,4 +8,4 @@ summary: ""
 tags: Krita D&D
 ---
 
-<img src="/post_images/Water_Genasi_Finished.png">
+<img class="myImg" src="/post_images/Water_Genasi_Finished.png">
